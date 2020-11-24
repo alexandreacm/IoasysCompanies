@@ -1,0 +1,12 @@
+{
+  "name": "MobileCompanies",
+  "displayName": "MobileCompanies",
+  "expo": {
+    "name": "MobileCompanies",
+    "slug": "MobileCompanies",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
