@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, FlatList, Text, Button, Alert } from 'react-native';
+import { View, FlatList, Text, Alert } from 'react-native';
 import CardEnterPrises from '../../components/CardEnterPrises';
 import Loading from '../../components/Loading';
 import { useNavigation } from '@react-navigation/native';
@@ -34,7 +34,6 @@ function HomePage(props) {
       loadingEnterprises();
     } catch (e) {
       setLoading(false);
-      console.log(e.message);
       Alert.alert(e.message);
     }
 

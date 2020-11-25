@@ -68,8 +68,9 @@ export default function Routes() {
                     }} />
                 <stack.Screen name="Home" component={Tabs}
                     options={{
-                        header: null,
-                        headerShown: false
+                       title: 'Lista de empresas',
+                       headerRight: ()=> (<FontAwesome  name="user-plus" size={25} />),
+                       headerTitleAlign:'center'
                     }} />
                 <stack.Screen name="About" component={About} />
             </stack.Navigator>

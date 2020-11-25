@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
 import {
     Text,
     View,
@@ -9,12 +11,9 @@ import {
 } from 'react-native';
 
 import styles from './styles';
-import { useNavigation } from '@react-navigation/native';
-
-import { useSelector, useDispatch } from 'react-redux';
 import { signInRequest } from '../../store/modules/auth/actions';
 import Loading from '../../components/Loading';
-import Api from '../../services/Api';
+
 
 const {
     container,
@@ -26,10 +25,12 @@ const {
 function SignInPage() {
     const [email, setEmail] = useState('testeapple@ioasys.com.br');
     const [password, setPassword] = useState('12341234');
-    const [loading, setLoading] = useState(false);
     const { navigate } = useNavigation();
 
     const dispatch = useDispatch();
+    const { loading, signed, errorSign } = useSelector((state) => state.auth);
+    const state = useSelector((state) => state.auth);
+
 
     async function onHandleLogin() {
         try {
@@ -39,27 +40,20 @@ function SignInPage() {
                 return;
             }
 
-            setLoading(true);
-            const response = await Api.post(`users/auth/sign_in`, {
-                email,
-                password
-            })
+            dispatch(signInRequest(email, password));
+   
+            if (errorSign != ``) {
+                Alert.alert(errorSign);
+            }
 
-            dispatch(signInRequest(response));
-            
-            let { success } = response.data;
-
-            setLoading(false);
-
-            if (success) {
+            if (signed) {
                 navigate('Home');
             } else {
                 navigate('SignIn');
             }
 
-        } catch (e) {
-            setLoading(false);
-            Alert.alert(e);
+        } catch (error) {
+            Alert.alert(errorSign);
         }
 
     }

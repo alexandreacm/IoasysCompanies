@@ -19,7 +19,13 @@ export default function auth(state = INITIAL_STATE, action) {
     case SIGN_IN_REQUEST: {
       return {
         ...state,
-        loading: true
+        loading: true,
+        token: '',
+        client: '',
+        uid: '',
+        profile: null,
+        signed: false,
+        errorSign: ``
       }
     }
     case SIGN_IN_SUCCESS: {
@@ -29,7 +35,7 @@ export default function auth(state = INITIAL_STATE, action) {
         client: action.payload.client,
         uid: action.payload.uid,
         profile: action.payload.profile,
-        signed: true,
+        signed: action.payload.success,
         loading: false
       }
     }
