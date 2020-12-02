@@ -64,7 +64,7 @@ function HomePage(props) {
               country={item.country}
               city={item.city}
               segment={item.enterprise_type.enterprise_type_name}
-              onPress={() => handleAbout(item.id)}
+              onPressAbout={() => handleAbout(item.id)}
             />
           )}
         />

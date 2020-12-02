@@ -40,7 +40,7 @@ function SignInPage() {
                 return;
             }
 
-            dispatch(signInRequest(email, password));
+            await dispatch(signInRequest(email, password));
    
             if (errorSign != ``) {
                 Alert.alert(errorSign);
@@ -53,6 +53,7 @@ function SignInPage() {
             }
 
         } catch (error) {
+            console.log(error);
             Alert.alert(errorSign);
         }
 
@@ -64,7 +65,7 @@ function SignInPage() {
         return (
             <View style={container}>
                 <Image source={require('../../assets/logo_ioasys.png')}
-                    resizeMode="contain"
+                    resizeMode="cover"
                     style={{ width: 200 }} />
 
                 <View>

@@ -15,7 +15,14 @@ const {
     viewAdress,
     balanceFormat } = styles;
 
-export function ProfilePage(props) {
+function ProfilePage(props) {
+    const {
+        balanceFormatted,
+        investor_name,
+        email,
+        city,
+        country } = props.profile;
+
     return (
         <View style={container}>
             <View style={viewPhoto}>

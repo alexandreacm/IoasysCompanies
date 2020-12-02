@@ -37,7 +37,7 @@ export default function CardEnterPrises(
 
         <TouchableOpacity
           style={{ backgroundColor: '#000', width: '100%', padding: 10, marginTop: 12, borderRadius: 15 }}
-          onPress={onPress}>
+          onPress={onPressAbout}>
           <Text style={{ color: '#FFF', textAlign: 'center' }}>VER MAIS</Text>
         </TouchableOpacity>
       </View>
